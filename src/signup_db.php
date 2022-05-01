@@ -35,9 +35,9 @@
         } else if (strlen($_POST['password']) <6) {
             $_SESSION['error'] = 'password ต้องมีความยาวไม่ต่ำกว่า 6 ตัวอักษร';
             header("location: register.php");
-        } else if ($uppercase || $lowercase || $number) {
+        } else if (!$uppercase || !$lowercase || !$number) {
             $_SESSION['error'] = 'password ต้องไม่ใช่ตัวหนังสือ ตัวเลขเรียงกัน';
-            header("location: change_pass.php");
+            header("location: register.php");
         } else if (empty($c_password)) {
             $_SESSION['error'] = 'กรุณายืนยัน password';
             header("location: register.php");

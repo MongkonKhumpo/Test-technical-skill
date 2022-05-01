@@ -35,7 +35,7 @@
          }  else if ($new_pass != $confirm_pass) {
             $_SESSION['error'] = 'รหัสผ่านไม่ตรงกัน';
             header("location: change_pass.php");
-        } else if ($uppercase || $lowercase || $number) {
+        } else if (!$uppercase || !$lowercase || !$number) {
             $_SESSION['error'] = 'password ต้องไม่ใช่ตัวหนังสือ ตัวเลขเรียงกัน';
             header("location: change_pass.php");
         } else  {
